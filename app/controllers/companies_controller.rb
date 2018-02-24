@@ -4,7 +4,29 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
+
+      if user_signed_in?
+         if JobSeeker.exists?(:user_id => current_user.id)
+           @js = JobSeeker.where(["user_id = ?", current_user.id]).first
+           redirect_to( job_seeker_path(@js) )
+         else
+           @companies = Company.all #This will be replaced by the homepage
+
+         end
+      end
+
+      if ruser_signed_in?
+        if Recruiter.exists?(:ruser_id => current_ruser.id)
+          @r = Recruiter.where(["user_id = ?", current_ruser.id]).first
+          redirect_to( recruiter_path(@r) )
+        else
+          @companies = Company.all #This will be replaced by the homepage
+
+        end
+      end
+
     @companies = Company.all
+
   end
 
   # GET /companies/1

@@ -5,5 +5,14 @@
   <%= @admin.name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
+
+
+<%= link_to 'Show all Recruiters',recruiters_url %> |
+<%= link_to 'Create new Recruiter -- use the Ruser new registration link', edit_admin_path(@admin) %> |
+<%= link_to 'Show all JobSeekers', job_seekers_url %> |
+<%= link_to 'Show all Companies', companies_url %> |
+<%= link_to 'Create new job seeker -- use the User new registration link', edit_admin_path(@admin) %> |
+<%= link_to 'Show all Applications ', applications_url %> |
+<%= link_to 'Show all Jobs  ', jobs_url %> |
+<%= link_to 'Edit My Profile', edit_admin_path(@admin) %> |
 <%= link_to 'Back', admins_path %>

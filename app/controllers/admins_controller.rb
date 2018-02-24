@@ -15,7 +15,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     #@admin = Admin.new
-    @admin  = current_auser.admin.build
+    @admin  = current_auser.admins.build
   end
 
   # GET /admins/1/edit
@@ -26,7 +26,7 @@ class AdminsController < ApplicationController
   # POST /admins.json
   def create
     #@admin = Admin.new(admin_params)
-    @admin = current_auser.admin.build(admin_params)
+    @admin = current_auser.admins.build(admin_params)
 
     respond_to do |format|
       if @admin.save
